@@ -112,3 +112,15 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+// STEP ONE
+
+function createArticle(newsfeed) {
+  const newsArticle1 = document.createElement('div');
+  const newsTitle1 = document.createElement('h2');
+  const newsDate1 = document.createElement('p');
+  const newsContent1 = document.createElement('p');
+  const newsContent2 = document.createElement('p');
+  const newsContent3 = document.createElement('p');
+  const newsButton = document.createElement('span');
+}
