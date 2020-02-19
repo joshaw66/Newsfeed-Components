@@ -115,12 +115,44 @@ const data = [
 
 // STEP ONE
 
-function createArticle(newsfeed) {
-  const newsArticle1 = document.createElement('div');
-  const newsTitle1 = document.createElement('h2');
-  const newsDate1 = document.createElement('p');
-  const newsContent1 = document.createElement('p');
-  const newsContent2 = document.createElement('p');
-  const newsContent3 = document.createElement('p');
+const articles = document.querySelector('.articles');
+console.log(articles)
+
+function componentCreator(title, date, p1, p2, p3) {
+  
+  const article = document.createElement('div');
+  const titleText = document.createElement('h2');
+  const titleDate = document.createElement('p');
+  const par1 = document.createElement('p');
+  const par2 = document.createElement('p');
+  const par3 = document.createElement('p');
   const newsButton = document.createElement('span');
+  
+  article.appendChild(titleText);
+  article.appendChild(titleDate);
+  article.appendChild(par1);
+  article.appendChild(par2);
+  article.appendChild(par3);
+  article.appendChild(newsButton);
+
+  article.classList.add('article');
+  titleDate.classList.add('date');
+  newsButton.classList.add('expandButton');
+
+  titleText.textContent = title;
+  titleDate.textContent = date;
+  par1.textContent = p1;
+  par2.textContent = p2;
+  par3.textContent = p3;
+  newsButton.textContent = 'Click to Expand';
+
+  newsButton.addEventListener('click', (e) => {
+    article.classList.toggle("article-open")
+  });
+
+  return article;
 }
+
+data.map((article) => {
+  return articles.appendChild(componentCreator(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph))
+})
