@@ -128,6 +128,8 @@ function componentCreator(title, date, p1, p2, p3) {
   const par3 = document.createElement('p');
   const newsButton = document.createElement('span');
   
+// STEP FOUR
+
   article.appendChild(titleText);
   article.appendChild(titleDate);
   article.appendChild(par1);
@@ -146,9 +148,13 @@ function componentCreator(title, date, p1, p2, p3) {
   par3.textContent = p3;
   newsButton.textContent = 'Click to Expand';
 
+// STEP TWO
+
   newsButton.addEventListener('click', (e) => {
     article.classList.toggle("article-open")
   });
+
+// STEP THREE
 
   return article;
 }
@@ -156,6 +162,8 @@ function componentCreator(title, date, p1, p2, p3) {
 data.map((article) => {
   return articles.appendChild(componentCreator(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph))
 })
+
+// STEP FIVE
 
 const addJoshArticle = [{
   title: "This Article was created by Josh for the People",
