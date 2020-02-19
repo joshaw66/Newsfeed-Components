@@ -37,29 +37,39 @@ let menuItems = [
 // STEP ONE
 
 const header = document.querySelector('.header');
-const buttonMenu = document.querySelector('.menu-button')
 
-function menuCreate (array) {
-  const nav = document.createElement('div');
-  const links = document.createElement('ul');
+const mButton = document.querySelector('.menu-button');
 
-  nav.appendChild(links);
+// STEP TWO
+
+function openMenu (array) {
+  const navSection = document.createElement('div');
+  const listLinks= document.createElement('ul');
+
+  navSection.appendChild(listLinks);
+
+// STEP THREE
 
   menuItems.forEach((link) => {
-    const item = document.createElement('link');
+    const item = document.createElement('li');
     item.textContent = link;
-    linksList.appendChild(item);
-    item.style.cursor = 'crosshair';
+    listLinks.appendChild(item);
+    item.style.cursor = 'grab';
   })
 
-  nav.classList.add('menu');
-  buttonMenu.addEventListener('click', (event) => {
-    nav.classList.toggle('menu--open');
+// STEP FOUR
+
+  navSection.classList.add('menu');
+  mButton.addEventListener('click', (e) => {
+    navSection.classList.toggle('menu--open');
   })
-  return.nav;
+
+// STEP FIVE
+
+  return navSection;
 }
 
-header.appendChild(menuCreate(menuItems));
+header.appendChild(openMenu(menuItems));
 
 
 
