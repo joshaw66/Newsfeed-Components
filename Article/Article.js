@@ -112,3 +112,85 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+// STEP ONE
+
+const articles = document.querySelector('.articles');
+console.log(articles)
+
+function componentCreator(title, date, p1, p2, p3) {
+  
+  const article = document.createElement('div');
+  const titleText = document.createElement('h2');
+  const titleDate = document.createElement('p');
+  const par1 = document.createElement('p');
+  const par2 = document.createElement('p');
+  const par3 = document.createElement('p');
+  const newsButton = document.createElement('span');
+  
+// STEP FOUR
+
+  article.appendChild(titleText);
+  article.appendChild(titleDate);
+  article.appendChild(par1);
+  article.appendChild(par2);
+  article.appendChild(par3);
+  article.appendChild(newsButton);
+
+  article.classList.add('article');
+  titleDate.classList.add('date');
+  newsButton.classList.add('expandButton');
+
+  titleText.textContent = title;
+  titleDate.textContent = date;
+  par1.textContent = p1;
+  par2.textContent = p2;
+  par3.textContent = p3;
+  newsButton.textContent = 'Click to Expand';
+
+// STEP TWO
+
+  newsButton.addEventListener('click', (e) => {
+    article.classList.toggle("article-open")
+  });
+
+// STEP THREE
+
+  return article;
+}
+
+data.map((article) => {
+  return articles.appendChild(componentCreator(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph))
+})
+
+// STEP FIVE
+
+const addJoshArticle = [{
+  title: "This Article was created by Josh for the People",
+  date: "Feb 19 2020",
+  firstParagraph: "Timeframe new economy. This is not the hill i want to die on. PowerPointless quick-win, products need full resourcing and support from a cross-functional team in order to be built, maintained, and evolved that jerk from finance really threw me under the bus run it up the flag pole. This is a no-brainer get all your ducks in a row eat our own dog food or c-suite. Strategic high-level 30,000 ft view we need to leverage our synergies. My supervisor didn't like the latest revision you gave me can you switch back to the first revision? focus on the customer journey. Bottleneck mice hit the ground running let's prioritize the low-hanging fruit, so net net or turn the ship due diligence anti-pattern.",
+  secondParagraph: "Design thinking. Feature creep obviously. This is meaningless. Gage [sic] where the industry is heading and give back to the community what we’ve learned low engagement so you better eat a reality sandwich before you walk back in that boardroom, nor i don't want to drain the whole swamp, i just want to shoot some alligators, vec. We're ahead of the curve on that one. Keep it lean corporate synergy data-point it's not hard guys.",
+  thirdParagraph: "Locked and loaded pre launch for anti-pattern but peel the onion but pipeline drink from the firehose build on a culture of contribution and inclusion. Clear blue water quick sync drink from the firehose. We need to harvest synergy effects. Open door policy social currency for i’ve been doing some research this morning and we need to better. Let's unpack that later hard stop. Core competencies strategic fit action item what's our go to market strategy? this is our north star design, sea change but product launch. Can we parallel path great plan! let me diarize this, and we can synchronise ourselves at a later timepoint or game plan, hit the ground running, yet minimize backwards overflow.",
+
+}, 
+{
+  title: "This Article is very Redundant if you ask me..",
+  date: "Feb 19 2020",
+  firstParagraph: "Timeframe new economy. This is not the hill i want to die on. PowerPointless quick-win, products need full resourcing and support from a cross-functional team in order to be built, maintained, and evolved that jerk from finance really threw me under the bus run it up the flag pole. This is a no-brainer get all your ducks in a row eat our own dog food or c-suite. Strategic high-level 30,000 ft view we need to leverage our synergies. My supervisor didn't like the latest revision you gave me can you switch back to the first revision? focus on the customer journey. Bottleneck mice hit the ground running let's prioritize the low-hanging fruit, so net net or turn the ship due diligence anti-pattern.",
+  secondParagraph: "Design thinking. Feature creep obviously. This is meaningless. Gage [sic] where the industry is heading and give back to the community what we’ve learned low engagement so you better eat a reality sandwich before you walk back in that boardroom, nor i don't want to drain the whole swamp, i just want to shoot some alligators, vec. We're ahead of the curve on that one. Keep it lean corporate synergy data-point it's not hard guys.",
+  thirdParagraph: "Locked and loaded pre launch for anti-pattern but peel the onion but pipeline drink from the firehose build on a culture of contribution and inclusion. Clear blue water quick sync drink from the firehose. We need to harvest synergy effects. Open door policy social currency for i’ve been doing some research this morning and we need to better. Let's unpack that later hard stop. Core competencies strategic fit action item what's our go to market strategy? this is our north star design, sea change but product launch. Can we parallel path great plan! let me diarize this, and we can synchronise ourselves at a later timepoint or game plan, hit the ground running, yet minimize backwards overflow.",
+
+},
+{
+  title: "Ok, Now this is Getting Ridiculous..",
+  date: "Feb 19 2020",
+  firstParagraph: "Timeframe new economy. This is not the hill i want to die on. PowerPointless quick-win, products need full resourcing and support from a cross-functional team in order to be built, maintained, and evolved that jerk from finance really threw me under the bus run it up the flag pole. This is a no-brainer get all your ducks in a row eat our own dog food or c-suite. Strategic high-level 30,000 ft view we need to leverage our synergies. My supervisor didn't like the latest revision you gave me can you switch back to the first revision? focus on the customer journey. Bottleneck mice hit the ground running let's prioritize the low-hanging fruit, so net net or turn the ship due diligence anti-pattern.",
+  secondParagraph: "Design thinking. Feature creep obviously. This is meaningless. Gage [sic] where the industry is heading and give back to the community what we’ve learned low engagement so you better eat a reality sandwich before you walk back in that boardroom, nor i don't want to drain the whole swamp, i just want to shoot some alligators, vec. We're ahead of the curve on that one. Keep it lean corporate synergy data-point it's not hard guys.",
+  thirdParagraph: "Locked and loaded pre launch for anti-pattern but peel the onion but pipeline drink from the firehose build on a culture of contribution and inclusion. Clear blue water quick sync drink from the firehose. We need to harvest synergy effects. Open door policy social currency for i’ve been doing some research this morning and we need to better. Let's unpack that later hard stop. Core competencies strategic fit action item what's our go to market strategy? this is our north star design, sea change but product launch. Can we parallel path great plan! let me diarize this, and we can synchronise ourselves at a later timepoint or game plan, hit the ground running, yet minimize backwards overflow.",
+
+}
+]
+
+addJoshArticle.map((article) => {
+  return articles.appendChild(componentCreator(article.title, article.date, article.firstParagraph, article.secondParagraph, article.thirdParagraph))
+})
